@@ -1,0 +1,67 @@
+syntax="proto3";
+package impelDown_Prototype;
+
+option csharp_namespace = "ImpelDown.Proto.Prototype";
+
+enum MSGID
+{
+    S_ENTER = 0;
+    S_INIT = 1;
+    C_ENTER = 2;
+    S_INITLIST = 3;
+    C_MOVE = 4;
+    S_PLAYERLIST = 5;
+    S_LEAVE = 6;
+}
+
+message PlayerInfo
+{
+    int32 playerId = 1;
+    Position position = 2;
+}
+
+message Position
+{
+    float x = 1;
+    float y = 2;
+    float dinoScaleX = 3;
+    float gunScaleY = 4;
+    float gunRotate = 5;
+}
+
+message S_Init
+{
+    int32 playerId = 1;
+    Position spawnPosition = 2;
+}
+
+message C_Enter
+{
+    Position position = 1;
+}
+
+message S_Enter
+{
+    PlayerInfo playerInfo = 1;
+}
+
+message S_Leave
+{
+    int32 playerId = 1;
+}
+
+message C_Move
+{
+    int32 playerId = 1;
+    Position position = 2;
+}
+
+message S_InitList
+{
+    repeated PlayerInfo playerList = 1;
+}
+
+message S_PlayerList
+{
+    repeated PlayerInfo playerList = 1;
+}
