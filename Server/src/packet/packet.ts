@@ -112,9 +112,7 @@ export namespace impelDown_Prototype {
         constructor(data?: any[] | {
             x?: number;
             y?: number;
-            dinoScaleX?: number;
-            gunScaleY?: number;
-            gunRotate?: number;
+            flipX?: boolean;
         }) {
             super();
             pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
@@ -125,14 +123,8 @@ export namespace impelDown_Prototype {
                 if ("y" in data && data.y != undefined) {
                     this.y = data.y;
                 }
-                if ("dinoScaleX" in data && data.dinoScaleX != undefined) {
-                    this.dinoScaleX = data.dinoScaleX;
-                }
-                if ("gunScaleY" in data && data.gunScaleY != undefined) {
-                    this.gunScaleY = data.gunScaleY;
-                }
-                if ("gunRotate" in data && data.gunRotate != undefined) {
-                    this.gunRotate = data.gunRotate;
+                if ("flipX" in data && data.flipX != undefined) {
+                    this.flipX = data.flipX;
                 }
             }
         }
@@ -148,30 +140,16 @@ export namespace impelDown_Prototype {
         set y(value: number) {
             pb_1.Message.setField(this, 2, value);
         }
-        get dinoScaleX() {
-            return pb_1.Message.getFieldWithDefault(this, 3, 0) as number;
+        get flipX() {
+            return pb_1.Message.getFieldWithDefault(this, 3, false) as boolean;
         }
-        set dinoScaleX(value: number) {
+        set flipX(value: boolean) {
             pb_1.Message.setField(this, 3, value);
-        }
-        get gunScaleY() {
-            return pb_1.Message.getFieldWithDefault(this, 4, 0) as number;
-        }
-        set gunScaleY(value: number) {
-            pb_1.Message.setField(this, 4, value);
-        }
-        get gunRotate() {
-            return pb_1.Message.getFieldWithDefault(this, 5, 0) as number;
-        }
-        set gunRotate(value: number) {
-            pb_1.Message.setField(this, 5, value);
         }
         static fromObject(data: {
             x?: number;
             y?: number;
-            dinoScaleX?: number;
-            gunScaleY?: number;
-            gunRotate?: number;
+            flipX?: boolean;
         }): Position {
             const message = new Position({});
             if (data.x != null) {
@@ -180,14 +158,8 @@ export namespace impelDown_Prototype {
             if (data.y != null) {
                 message.y = data.y;
             }
-            if (data.dinoScaleX != null) {
-                message.dinoScaleX = data.dinoScaleX;
-            }
-            if (data.gunScaleY != null) {
-                message.gunScaleY = data.gunScaleY;
-            }
-            if (data.gunRotate != null) {
-                message.gunRotate = data.gunRotate;
+            if (data.flipX != null) {
+                message.flipX = data.flipX;
             }
             return message;
         }
@@ -195,9 +167,7 @@ export namespace impelDown_Prototype {
             const data: {
                 x?: number;
                 y?: number;
-                dinoScaleX?: number;
-                gunScaleY?: number;
-                gunRotate?: number;
+                flipX?: boolean;
             } = {};
             if (this.x != null) {
                 data.x = this.x;
@@ -205,14 +175,8 @@ export namespace impelDown_Prototype {
             if (this.y != null) {
                 data.y = this.y;
             }
-            if (this.dinoScaleX != null) {
-                data.dinoScaleX = this.dinoScaleX;
-            }
-            if (this.gunScaleY != null) {
-                data.gunScaleY = this.gunScaleY;
-            }
-            if (this.gunRotate != null) {
-                data.gunRotate = this.gunRotate;
+            if (this.flipX != null) {
+                data.flipX = this.flipX;
             }
             return data;
         }
@@ -224,12 +188,8 @@ export namespace impelDown_Prototype {
                 writer.writeFloat(1, this.x);
             if (this.y != 0)
                 writer.writeFloat(2, this.y);
-            if (this.dinoScaleX != 0)
-                writer.writeFloat(3, this.dinoScaleX);
-            if (this.gunScaleY != 0)
-                writer.writeFloat(4, this.gunScaleY);
-            if (this.gunRotate != 0)
-                writer.writeFloat(5, this.gunRotate);
+            if (this.flipX != false)
+                writer.writeBool(3, this.flipX);
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -246,13 +206,7 @@ export namespace impelDown_Prototype {
                         message.y = reader.readFloat();
                         break;
                     case 3:
-                        message.dinoScaleX = reader.readFloat();
-                        break;
-                    case 4:
-                        message.gunScaleY = reader.readFloat();
-                        break;
-                    case 5:
-                        message.gunRotate = reader.readFloat();
+                        message.flipX = reader.readBool();
                         break;
                     default: reader.skipField();
                 }

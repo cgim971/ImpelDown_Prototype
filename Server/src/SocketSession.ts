@@ -8,9 +8,9 @@ export default class SocketSession {
 
     isEnter: boolean = false;
     // 꼬리 
-    tail:number = 0;
+    tail: number = 0;
 
-    position: impelDown_Prototype.Position = new impelDown_Prototype.Position({ x: 0, y: 0, dinoScaleX:1, gunScaleY: 1, gunRotate: 0 });
+    position: impelDown_Prototype.Position = new impelDown_Prototype.Position({ x: 0, y: 0, flipX: false });
 
     constructor(socket: WebSocket, playerId: number, CloseCallback: Function) {
         this.socket = socket;

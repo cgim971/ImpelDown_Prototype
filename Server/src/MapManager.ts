@@ -36,8 +36,8 @@ export default class MapManager {
         this.mapData = this.mapData.reverse();
 
         this.spawnList.push(
-            new impelDown_Prototype.Position({ x: -13, y: 8 }),
-            new impelDown_Prototype.Position({ x: 12, y: 8 }),
+            new impelDown_Prototype.Position({ x: -13, y:7 }),
+            new impelDown_Prototype.Position({ x: 12, y: 7 }),
             new impelDown_Prototype.Position({ x: -13, y: -8 }),
             new impelDown_Prototype.Position({ x: 12, y: -8 })
         );

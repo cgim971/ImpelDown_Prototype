@@ -24,9 +24,7 @@ message Position
 {
     float x = 1;
     float y = 2;
-    float dinoScaleX = 3;
-    float gunScaleY = 4;
-    float gunRotate = 5;
+    bool flipX = 3;
 }
 
 message S_Init
