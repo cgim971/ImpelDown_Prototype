@@ -33,6 +33,9 @@ public class DinoController : MonoBehaviour
             case AnimationState.RUN:
                 RunState();
                 break;
+            case AnimationState.CATCH:
+                CatchState();
+                break;
         }
     }
 

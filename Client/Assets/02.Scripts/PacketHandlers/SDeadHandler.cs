@@ -12,7 +12,6 @@ public class SDeadHandler : IPacketHandler
 
         PlayerController player = PlayerManager.Instance.GetRemotePlayer(msg.PlayerId);
 
-
         if (player == null)
         {
             GameObject.Destroy(GameManager.Instance.Player);
@@ -25,8 +24,8 @@ public class SDeadHandler : IPacketHandler
         else
         {
             PlayerManager.Instance.RemoveRemotePlayer(msg.PlayerId);
-
             GameObject.Destroy(player.gameObject);
+
             Debug.Log("다른 애가 죽어");
             return;
         }

@@ -16,7 +16,8 @@ export namespace impelDown_Prototype {
         C_CAUGHT_REPORT = 7,
         S_CAUGHT_CONFIRM = 8,
         C_DEAD = 9,
-        S_DEAD = 10
+        S_DEAD = 10,
+        S_TAIL = 11
     }
     export class PlayerInfo extends pb_1.Message {
         #one_of_decls: number[][] = [];
@@ -751,7 +752,7 @@ export namespace impelDown_Prototype {
             return S_PlayerList.deserialize(bytes);
         }
     }
-    export class C_Caught_Report extends pb_1.Message {
+    export class C_CaughtReport extends pb_1.Message {
         #one_of_decls: number[][] = [];
         constructor(data?: any[] | {
             playerId?: number;
@@ -783,8 +784,8 @@ export namespace impelDown_Prototype {
         static fromObject(data: {
             playerId?: number;
             caughtPlayerId?: number;
-        }): C_Caught_Report {
-            const message = new C_Caught_Report({});
+        }): C_CaughtReport {
+            const message = new C_CaughtReport({});
             if (data.playerId != null) {
                 message.playerId = data.playerId;
             }
@@ -817,8 +818,8 @@ export namespace impelDown_Prototype {
             if (!w)
                 return writer.getResultBuffer();
         }
-        static deserialize(bytes: Uint8Array | pb_1.BinaryReader): C_Caught_Report {
-            const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new C_Caught_Report();
+        static deserialize(bytes: Uint8Array | pb_1.BinaryReader): C_CaughtReport {
+            const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new C_CaughtReport();
             while (reader.nextField()) {
                 if (reader.isEndGroup())
                     break;
@@ -837,11 +838,11 @@ export namespace impelDown_Prototype {
         serializeBinary(): Uint8Array {
             return this.serialize();
         }
-        static deserializeBinary(bytes: Uint8Array): C_Caught_Report {
-            return C_Caught_Report.deserialize(bytes);
+        static deserializeBinary(bytes: Uint8Array): C_CaughtReport {
+            return C_CaughtReport.deserialize(bytes);
         }
     }
-    export class S_Caught_CONFIRM extends pb_1.Message {
+    export class S_CaughtConfirm extends pb_1.Message {
         #one_of_decls: number[][] = [];
         constructor(data?: any[] | {
             playerId?: number;
@@ -873,8 +874,8 @@ export namespace impelDown_Prototype {
         static fromObject(data: {
             playerId?: number;
             catchPlayerId?: number;
-        }): S_Caught_CONFIRM {
-            const message = new S_Caught_CONFIRM({});
+        }): S_CaughtConfirm {
+            const message = new S_CaughtConfirm({});
             if (data.playerId != null) {
                 message.playerId = data.playerId;
             }
@@ -907,8 +908,8 @@ export namespace impelDown_Prototype {
             if (!w)
                 return writer.getResultBuffer();
         }
-        static deserialize(bytes: Uint8Array | pb_1.BinaryReader): S_Caught_CONFIRM {
-            const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new S_Caught_CONFIRM();
+        static deserialize(bytes: Uint8Array | pb_1.BinaryReader): S_CaughtConfirm {
+            const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new S_CaughtConfirm();
             while (reader.nextField()) {
                 if (reader.isEndGroup())
                     break;
@@ -927,8 +928,8 @@ export namespace impelDown_Prototype {
         serializeBinary(): Uint8Array {
             return this.serialize();
         }
-        static deserializeBinary(bytes: Uint8Array): S_Caught_CONFIRM {
-            return S_Caught_CONFIRM.deserialize(bytes);
+        static deserializeBinary(bytes: Uint8Array): S_CaughtConfirm {
+            return S_CaughtConfirm.deserialize(bytes);
         }
     }
     export class C_Dead extends pb_1.Message {
@@ -1063,6 +1064,96 @@ export namespace impelDown_Prototype {
         }
         static deserializeBinary(bytes: Uint8Array): S_Dead {
             return S_Dead.deserialize(bytes);
+        }
+    }
+    export class S_Tail extends pb_1.Message {
+        #one_of_decls: number[][] = [];
+        constructor(data?: any[] | {
+            playerId?: number;
+            tailNo?: number;
+        }) {
+            super();
+            pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
+            if (!Array.isArray(data) && typeof data == "object") {
+                if ("playerId" in data && data.playerId != undefined) {
+                    this.playerId = data.playerId;
+                }
+                if ("tailNo" in data && data.tailNo != undefined) {
+                    this.tailNo = data.tailNo;
+                }
+            }
+        }
+        get playerId() {
+            return pb_1.Message.getFieldWithDefault(this, 1, 0) as number;
+        }
+        set playerId(value: number) {
+            pb_1.Message.setField(this, 1, value);
+        }
+        get tailNo() {
+            return pb_1.Message.getFieldWithDefault(this, 2, 0) as number;
+        }
+        set tailNo(value: number) {
+            pb_1.Message.setField(this, 2, value);
+        }
+        static fromObject(data: {
+            playerId?: number;
+            tailNo?: number;
+        }): S_Tail {
+            const message = new S_Tail({});
+            if (data.playerId != null) {
+                message.playerId = data.playerId;
+            }
+            if (data.tailNo != null) {
+                message.tailNo = data.tailNo;
+            }
+            return message;
+        }
+        toObject() {
+            const data: {
+                playerId?: number;
+                tailNo?: number;
+            } = {};
+            if (this.playerId != null) {
+                data.playerId = this.playerId;
+            }
+            if (this.tailNo != null) {
+                data.tailNo = this.tailNo;
+            }
+            return data;
+        }
+        serialize(): Uint8Array;
+        serialize(w: pb_1.BinaryWriter): void;
+        serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+            const writer = w || new pb_1.BinaryWriter();
+            if (this.playerId != 0)
+                writer.writeInt32(1, this.playerId);
+            if (this.tailNo != 0)
+                writer.writeInt32(2, this.tailNo);
+            if (!w)
+                return writer.getResultBuffer();
+        }
+        static deserialize(bytes: Uint8Array | pb_1.BinaryReader): S_Tail {
+            const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new S_Tail();
+            while (reader.nextField()) {
+                if (reader.isEndGroup())
+                    break;
+                switch (reader.getFieldNumber()) {
+                    case 1:
+                        message.playerId = reader.readInt32();
+                        break;
+                    case 2:
+                        message.tailNo = reader.readInt32();
+                        break;
+                    default: reader.skipField();
+                }
+            }
+            return message;
+        }
+        serializeBinary(): Uint8Array {
+            return this.serialize();
+        }
+        static deserializeBinary(bytes: Uint8Array): S_Tail {
+            return S_Tail.deserialize(bytes);
         }
     }
 }

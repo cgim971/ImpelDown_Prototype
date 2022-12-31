@@ -82,6 +82,11 @@ public class PlayerController : NetworkObject
         }
     }
 
+    public void SetAnimation(AnimationState state)
+    {
+        _dinoController.SetAnimator(state);
+    }
+
     public void SetPositionData(PositionData positionData, bool isImmediate = false)
     {
         _dinoController.SetFlipX(positionData.flipX);

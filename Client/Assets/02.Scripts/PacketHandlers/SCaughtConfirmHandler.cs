@@ -8,8 +8,13 @@ public class SCaughtConfirmHandler : IPacketHandler
 {
     public void Process(IMessage packet)
     {
-        S_Caught_CONFIRM msg = packet as S_Caught_CONFIRM;
+        S_CaughtConfirm msg = packet as S_CaughtConfirm;
+
+        PlayerController player = PlayerManager.Instance.GetRemotePlayer(msg.PlayerId);
 
 
+
+        C_Dead cDead = new C_Dead { PlayerId = msg.PlayerId };
+        NetworkManager.Instance.RegisterSend((ushort)MSGID.CDead, cDead);
     }
 }

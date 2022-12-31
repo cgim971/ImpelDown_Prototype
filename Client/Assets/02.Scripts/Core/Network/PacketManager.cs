@@ -36,7 +36,7 @@ public class PacketManager : MonoBehaviour
         _Handlers.Add((ushort)MSGID.SPlayerlist, new SPlayerListHandler());
 
 
-        _OnRecv.Add((ushort)MSGID.SCaughtConfirm, MakePacket<S_Caught_CONFIRM>);
+        _OnRecv.Add((ushort)MSGID.SCaughtConfirm, MakePacket<S_CaughtConfirm>);
         _Handlers.Add((ushort)MSGID.SCaughtConfirm, new SCaughtConfirmHandler());
 
 

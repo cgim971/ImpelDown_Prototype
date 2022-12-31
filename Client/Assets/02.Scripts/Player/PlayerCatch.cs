@@ -32,13 +32,16 @@ public class PlayerCatch : MonoBehaviour
         Vector3 delta = worldMousePos - transform.position;
         delta.Normalize();
 
+        _playerController.SetAnimation(AnimationState.CATCH);
+
+
         RaycastHit2D[] players = Physics2D.RaycastAll(transform.position, delta, 1.5f, _playerLayerMask);
         foreach (RaycastHit2D player in players)
         {
             int playerId = player.transform.GetComponentInParent<PlayerController>().PlayerId;
             if (playerId == _playerController.PlayerId) continue;
 
-            C_Caught_Report caughtReport = new C_Caught_Report
+            C_CaughtReport caughtReport = new C_CaughtReport
             {
                 PlayerId = _playerController.PlayerId,
                 CaughtPlayerId = playerId
