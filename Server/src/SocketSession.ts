@@ -8,7 +8,8 @@ export default class SocketSession {
 
     isEnter: boolean = false;
     // 꼬리 
-    tail: number = 0;
+    tail_front: number = 0;
+    tail_back:number = 0;
 
     position: impelDown_Prototype.Position = new impelDown_Prototype.Position({ x: 0, y: 0, flipX: false });
 

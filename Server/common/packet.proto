@@ -12,6 +12,10 @@ enum MSGID
     C_MOVE = 4;
     S_PLAYERLIST = 5;
     S_LEAVE = 6;
+    C_CAUGHT_REPORT = 7;
+    S_CAUGHT_CONFIRM = 8;
+    C_DEAD = 9;
+    S_DEAD = 10;
 }
 
 message PlayerInfo
@@ -62,4 +66,26 @@ message S_InitList
 message S_PlayerList
 {
     repeated PlayerInfo playerList = 1;
+}
+
+message C_CaughtReport 
+{
+    int32 playerId = 1;
+    int32 caughtPlayerId = 2;
+}
+
+message  S_CaughtConfirm 
+{
+    int32 playerId = 1;
+    int32 catchPlayerId = 2;
+}
+
+message C_Dead
+{
+    int32 playerId = 1;
+}
+
+message S_Dead
+{
+    int32 playerId = 1;
 }

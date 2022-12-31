@@ -34,6 +34,18 @@ public class PacketManager : MonoBehaviour
 
         _OnRecv.Add((ushort)MSGID.SPlayerlist, MakePacket<S_PlayerList>);
         _Handlers.Add((ushort)MSGID.SPlayerlist, new SPlayerListHandler());
+
+
+        _OnRecv.Add((ushort)MSGID.SCaughtConfirm, MakePacket<S_Caught_CONFIRM>);
+        _Handlers.Add((ushort)MSGID.SCaughtConfirm, new SCaughtConfirmHandler());
+
+
+        _OnRecv.Add((ushort)MSGID.SLeave, MakePacket<S_Leave>);
+        _Handlers.Add((ushort)MSGID.SLeave, new SLeaveHandler());
+
+
+        _OnRecv.Add((ushort)MSGID.SDead, MakePacket<S_Dead>);
+        _Handlers.Add((ushort)MSGID.SDead, new SDeadHandler());
     }
 
     public IPacketHandler GetPacketHandler(ushort id)

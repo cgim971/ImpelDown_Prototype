@@ -14,7 +14,12 @@ public class PlayerController : NetworkObject
     public DinoController DinoController => _dinoController;
     private DinoController _dinoController;
 
+    public TailController TailController => _tailController;
+    private TailController _tailController;
+
     private PlayerMove _playerMove;
+
+    private PlayerCatch _playerCatch;
 
     bool _flipX = false;
     float _width = 0;
@@ -23,10 +28,14 @@ public class PlayerController : NetworkObject
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerMove = GetComponent<PlayerMove>();
+        _playerCatch = GetComponent<PlayerCatch>();
         _dinoController = GetComponent<DinoController>();
+        _tailController = GetComponent<TailController>();
 
         _playerMove.Init(this);
+        _playerCatch.Init(this);
         _dinoController.Init(this);
+        _tailController.Init(this);
 
         _width = Screen.width / 2;
     }
@@ -47,6 +56,7 @@ public class PlayerController : NetworkObject
         if (IsRemote == false)
         {
             _playerMove.CheckInput();
+            _playerCatch.CheckInput();
             LookMouse();
             PlayAnimation();
         }
@@ -59,7 +69,6 @@ public class PlayerController : NetworkObject
 
         _dinoController.SetFlipX(_flipX);
     }
-
 
     public void PlayAnimation()
     {

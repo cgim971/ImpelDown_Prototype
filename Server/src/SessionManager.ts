@@ -21,6 +21,10 @@ export default class SessionManager {
         delete this.sessionMap[id];
     }
 
+    getSession(id:number) : SocketSession{
+        return this.sessionMap[id];
+    }
+    
     broadCastMessage(payload: Uint8Array, msgCode: number, senderId: number = 0, exceptSender: boolean = false): void {
         for (let index in this.sessionMap) {
             if (exceptSender == true && senderId == this.sessionMap[index].playerId)

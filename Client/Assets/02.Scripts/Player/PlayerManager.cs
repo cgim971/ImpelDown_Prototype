@@ -13,7 +13,6 @@ public class PlayerManager
     }
     private static PlayerManager _instance;
 
-    // 자신이 아닌 플레이어들
     private Dictionary<int, PlayerController> _remotePlayerList;
 
     public PlayerManager()
