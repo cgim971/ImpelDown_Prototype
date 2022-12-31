@@ -45,6 +45,8 @@ public class PlayerController : NetworkObject
         _isRemote = !isPlayer;
         PlayerId = playerId;
 
+        SetTailColor(playerId);
+
         if (_isRemote == false)
         {
             StartCoroutine(SendPositionAndRotation());
@@ -93,6 +95,10 @@ public class PlayerController : NetworkObject
         _playerMove.SetPositionData(positionData.pos, isImmediate);
     }
 
+    public void SetTailColor(int tailNo)
+    {
+        _tailController.SetTail(tailNo);
+    }
 
     private IEnumerator SendPositionAndRotation()
     {

@@ -46,6 +46,10 @@ public class PacketManager : MonoBehaviour
 
         _OnRecv.Add((ushort)MSGID.SDead, MakePacket<S_Dead>);
         _Handlers.Add((ushort)MSGID.SDead, new SDeadHandler());
+
+
+        _OnRecv.Add((ushort)MSGID.STail, MakePacket<S_Tail>);
+        _Handlers.Add((ushort)MSGID.STail, new STailHandler());
     }
 
     public IPacketHandler GetPacketHandler(ushort id)

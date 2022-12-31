@@ -23,6 +23,7 @@ message PlayerInfo
 {
     int32 playerId = 1;
     Position position = 2;
+    int32 tailNo = 3;
 }
 
 message Position
