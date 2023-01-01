@@ -12,9 +12,5 @@ public class SCaughtConfirmHandler : IPacketHandler
 
         PlayerController player = PlayerManager.Instance.GetRemotePlayer(msg.PlayerId);
 
-
-
-        C_Dead cDead = new C_Dead { PlayerId = msg.PlayerId };
-        NetworkManager.Instance.RegisterSend((ushort)MSGID.CDead, cDead);
     }
 }

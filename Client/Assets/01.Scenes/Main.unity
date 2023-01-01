@@ -7534,7 +7534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMap: {fileID: 726184941}
-  _connectUrl: ws://localhost:50000
+  _connectUrl: ws://172.31.3.19:50000
   _playerPrefab: {fileID: 3976639336958083521, guid: cb9d05fedc5bc2849b317b35402b9899, type: 3}
 --- !u!4 &1247915586
 Transform:

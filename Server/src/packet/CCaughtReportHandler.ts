@@ -14,11 +14,14 @@ export default class CCaughtReportHandler implements PacketHandler {
         // 잡힌 사람
         let caughtPlayerSocket = SessionManager.Instance.getSession(caughtPlayerId);
 
-        if(playerSocket.tail_front != caughtPlayerSocket.tail_back) return;
+        // if(playerSocket.tail_front != caughtPlayerSocket.tail_back) return;
         // 꼬리 변경 해줘야 함
-        playerSocket.tail_front = caughtPlayerSocket.tail_front;        
+        // playerSocket.tail_front = caughtPlayerSocket.tail_front;        
 
-        
+        let sDead = new impelDown_Prototype.S_Dead({playerId:caughtPlayerId});
+        SessionManager.Instance.broadCastMessage(sDead.serialize(), impelDown_Prototype.MSGID.S_DEAD);
+        SessionManager.Instance.removeSession(caughtPlayerId);
+
         let sCaughtConfirm = new impelDown_Prototype.S_CaughtConfirm({playerId:caughtPlayerId, catchPlayerId:playerId});
         SessionManager.Instance.broadCastMessage(sCaughtConfirm.serialize(), impelDown_Prototype.MSGID.S_CAUGHT_CONFIRM, caughtPlayerId);
     }
