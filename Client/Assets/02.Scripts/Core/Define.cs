@@ -17,13 +17,13 @@ public class Define
     {
         switch (tailNo)
         {
-            case 0: return Color.red;
-            case 1: return new Color(255, 165, 0);
-            case 2: return Color.yellow;
-            case 3: return Color.green;
-            case 4: return Color.blue;
-            case 5: return new Color(5, 5, 128);
-            case 6: return new Color(100, 55, 158);
+            case 1: return Color.red;
+            case 2: return new Color(255, 115, 0);
+            case 3: return Color.yellow;
+            case 4: return Color.green;
+            case 5: return Color.blue;
+            case 6: return new Color(28, 0, 77);
+            case 7: return new Color(150, 0, 255);
         }
         return Color.white;
     }

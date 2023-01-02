@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public PlayerController Player => _player;
     private PlayerController _player;
 
-
     public static GameManager Instance => _instance;
     private static GameManager _instance;
 
@@ -56,4 +55,6 @@ public class GameManager : MonoBehaviour
 
         return playerController;
     }
+
+    private void OnApplicationQuit() => NetworkManager.Instance.Disconnect();
 }
