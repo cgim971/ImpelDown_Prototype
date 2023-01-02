@@ -11,11 +11,8 @@ export default class CEnterHandler implements PacketHandler {
         // 새로 들어오면 포지션을 변경하고
         session.position = cEnter.position;
 
-        session.tail_front = session.tail_back = session.playerId;
-        
-        
         // 정보를 생성 후
-        let info = new impelDown_Prototype.PlayerInfo({ playerId: session.playerId, position: session.position,tailNo: session.tail_back });
+        let info = new impelDown_Prototype.PlayerInfo({ playerId: session.playerId, position: session.position });
         // 넣는다.
         let sEnter = new impelDown_Prototype.S_Enter({ playerInfo: info });
 

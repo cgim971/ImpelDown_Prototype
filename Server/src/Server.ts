@@ -8,6 +8,7 @@ import PacketManager from './PacketManager';
 import SessionManager from './SessionManager';
 import SocketSession from './SocketSession';
 import JobTimer from './JobTimer';
+import TailManager from './TailManager';
 
 const App: Application = Express();
 const httpServer = App.listen(50000, () => {
@@ -23,6 +24,7 @@ const socketServer: WS.Server = new WS.Server({
 PacketManager.Instance = new PacketManager();
 MapManager.Instance = new MapManager(Path.join(__dirname, "Tilemap.txt"));
 SessionManager.Instance = new SessionManager();
+TailManager.Instance = new TailManager();
 
 let playerId: number = 1;
 
@@ -41,6 +43,8 @@ socketServer.on("connection", (soc: WS, req: IncomingMessage) => {
     let msg = new impelDown_Prototype.S_Init({ playerId: playerId, spawnPosition: spawnPosition });
     session.sendData(msg.serialize(), impelDown_Prototype.MSGID.S_INIT);
 
+    TailManager.Instance.addTail(id);
+    
     playerId++;
 
     soc.on("message", (data: RawData, isBinary: boolean) => {
