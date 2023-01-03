@@ -1,0 +1,32 @@
+.skill {
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+    background-color: rgba(209, 209, 209, 255);
+    width: 120px;
+    height: 120px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    margin-right: 10px;
+    background-image: url('/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigningoogle.png');
+}
+
+.stamina {
+}
+
+.turn {
+    width: 35px;
+    height: 35px;
+    border-left-color: rgba(255, 61, 61, 255);
+    border-right-color: rgba(255, 61, 61, 255);
+    border-top-color: rgba(255, 61, 61, 255);
+    border-bottom-color: rgba(255, 61, 61, 255);
+    background-color: rgba(255, 95, 95, 255);
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+}

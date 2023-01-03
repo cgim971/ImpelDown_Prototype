@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="MainScene/skill.uss" />
+    <ui:VisualElement name="Container" style="flex-basis: 100%;">
+        <ui:VisualElement name="top" style="flex-basis: 80%;" />
+        <ui:VisualElement name="bottom" style="flex-grow: 1; align-items: center;">
+            <ui:VisualElement name="user_interface" style="width: 50%; flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement name="user_image" style="width: 200px; height: 200px; justify-content: flex-start; background-color: rgba(255, 255, 255, 255); background-image: url(&apos;/Assets/04.Sprites/Players/female/loki/base/bite.png&apos;); border-top-left-radius: 50%; border-bottom-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%;" />
+                <ui:VisualElement name="user_util_group" style="flex-grow: 1;">
+                    <ui:VisualElement name="turn_group" style="flex-basis: 20%; flex-direction: row; justify-content: space-around;">
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                        <ui:VisualElement class="turn" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="skill_group" style="flex-basis: 60%; flex-direction: row; justify-content: center; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0);">
+                        <ui:VisualElement name="skill-1" class="skill" />
+                        <ui:VisualElement name="skill-2" class="skill" />
+                        <ui:VisualElement name="skill-3" class="skill" />
+                        <ui:VisualElement name="skill-4" class="skill" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="stamina" style="flex-grow: 1; justify-content: flex-start; align-items: stretch;">
+                        <ui:Slider picking-mode="Ignore" value="42" high-value="100" show-input-field="false" style="margin-left: 15%; margin-right: 15%; background-color: rgba(188, 123, 123, 255);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
