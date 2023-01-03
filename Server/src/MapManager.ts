@@ -36,10 +36,7 @@ export default class MapManager {
         this.mapData = this.mapData.reverse();
 
         this.spawnList.push(
-            new impelDown_Prototype.Position({ x: -13, y:7 }),
-            new impelDown_Prototype.Position({ x: 12, y: 7 }),
-            new impelDown_Prototype.Position({ x: -13, y: -8 }),
-            new impelDown_Prototype.Position({ x: 12, y: -8 })
+            new impelDown_Prototype.Position({ x: 12, y: -8 }),
         );
     }
 
@@ -51,7 +48,7 @@ export default class MapManager {
     }
 
     getRandomSpawnPosition(): impelDown_Prototype.Position {
-        let idx: number = Math.floor(Math.random() * 4);
-        return this.spawnList[idx];
+        let idx: number = Math.floor(Math.random() * this.spawnList.length);
+        return this.spawnList[0];
     }
 }

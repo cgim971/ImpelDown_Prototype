@@ -21,6 +21,10 @@ public class PlayerController : NetworkObject
 
     private PlayerCatch _playerCatch;
 
+    public PlayerSO PlayerSO => _playerSO;
+    [SerializeField] private PlayerSO _playerSO;
+
+
     bool _flipX = false;
     float _width = 0;
 

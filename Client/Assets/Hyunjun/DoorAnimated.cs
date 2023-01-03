@@ -13,11 +13,13 @@ public class DoorAnimated : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     public void CtrlDoor()
     {
         if (!doorable)
             return;
-        if(!open)
+
+        if (!open)
         {
             animator.SetBool("Open", true);
             open = true;

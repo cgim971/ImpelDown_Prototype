@@ -5,14 +5,18 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     PlayerController _playerController;
-    public float _speed = 5;
+    private float _speed = 5;
 
     Vector3 _targetPos = Vector3.zero;
+    private PlayerSO _playerSO;
 
     public void Init(PlayerController playerController)
     {
         _playerController = playerController;
         _targetPos = transform.position;
+
+        _playerSO = playerController.PlayerSO;
+        _speed = _playerSO._baseSpeed;
     }
 
     public void CheckInput()
@@ -68,4 +72,9 @@ public class PlayerMove : MonoBehaviour
             _playerController.transform.position = pos;
         }
     }
+
+    public void SetSpeed(float speed) => _speed = speed;
+
+    public void SetSpeed() => _speed = _playerSO._baseSpeed;
+
 }

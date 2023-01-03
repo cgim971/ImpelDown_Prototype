@@ -8,7 +8,7 @@ public class SlowCircle : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerMove>()._speed = 1f;
+            collision.GetComponent<PlayerMove>().SetSpeed(1f);
         }
     }
 
@@ -16,7 +16,7 @@ public class SlowCircle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerMove>()._speed = 5f;
+            collision.GetComponent<PlayerMove>().SetSpeed();
         }
     }
 }

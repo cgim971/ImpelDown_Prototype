@@ -21,6 +21,10 @@ public class Grenade : MonoBehaviour
         StartCoroutine(Boom());
     }
 
+    // 사거리 
+    // 벽
+    // 플레이어
+
     IEnumerator Boom()
     {
         yield return new WaitForSeconds(1f);

@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/01.Scenes/JeHyeongJu.unity
+    guid: 639e2e4606767ca42b45ab17b0ef69eb
   m_configObjects: {}
