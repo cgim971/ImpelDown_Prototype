@@ -13,6 +13,7 @@ public class FireKillerItem : MonoBehaviour
     private bool _isMe = false;
     [SerializeField]
     private bool isCollision = false;
+    [SerializeField] private bool isOn = false;
 
     Color _blue = new Color(0f, 0f, 1f, 0.2f);
     Color _red = new Color(1f, 0f, 0f, 0.2f);
@@ -35,6 +36,23 @@ public class FireKillerItem : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            isOn = true;
+        }
+        else
+        {
+            isOn = false;
+        }
+
+        if(isOn)
+        {
+            GetComponentInChildren<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
+        }
         _dir = transform.position - _player.transform.position;
         float angle = Quaternion.FromToRotation(-_dir, Vector2.right).eulerAngles.z;
         Debug.Log(360 - angle);
